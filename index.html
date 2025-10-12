@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a melhor mãe do mundo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0e6d6;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .envelope {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            height: 20px;
+            background-color: #e6d7c4;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .header {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .header .date {
+            font-style: italic;
+        }
+
+        .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .poem-container {
+            border-left: 3px solid #ccc;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .poem {
+            font-family: 'Dancing Script', cursive;
+            white-space: pre-wrap;
+            font-size: 1.5em;
+            line-height: 1.6;
+            color: #444;
+            overflow: hidden; /* Garante que o texto não apareça todo de uma vez */
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            text-align: right;
+            font-size: 2em;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        /* Animação de digitação */
+        .typing-animation {
+            animation: typing 4s steps(40, end); /* Ajuste a duração e o número de passos */
+            overflow: hidden; /* Oculta o que não foi digitado */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="envelope">
+        <div class="header">
+            <div class="date" id="current-date"></div>
+        </div>
+        
+        <h1 class="greeting">Para minha querida Mãe,</h1>
+
+        <div>
+            <p class="poem" id="poem-text">
+Sinceramente,
+Nem sei por onde começo,
+Mas pra uma pessoa especial
+Eu dedico estes versos, 
+Hoje abro mão da técnica,
+Hoje abro mão da métrica.
+
+Para ti dedico essas rimas,
+Como uma forma celebrar,
+Mais um ano de sua companhia,
+Para comemorar,
+Mais um ano de vida.
+
+Luiza Giselia de Menezes Oliveira,
+Uma mulher forte,
+Uma mulher guerreira,
+Filha mais velha de dois agricultores,
+Aprendeu desde cedo que a vida não é brincadeira.
+
+Ela foi mãe bastante cedo,
+Abandonou o estudo, 
+Pra cuidar de seu pentelho,
+Que para ele até hoje
+O enche de conselhos.
+
+Uma pessoa de muitos adjetivos,
+Tentarei ao máximo,
+Buscar ser impassivo,
+Esse será o meu principal objetivo.
+
+Sua existência é indescritível,
+Seu amor incompreensível,
+Seu calor insubstituível,
+Você é uma pessoa incrível.
+
+Uma mulher forte e amável
+Sincera e confiável,
+Minha raiz inquebrável,
+Meu poço inesgotável,
+Minha luz na escuridão,
+Minha voz da razão, 
+Sem ti fico sem chão,
+Você é minha inspiração,
+De todo coração,
+A ti minha eterna gratidão.
+
+Você é meu abrigo,
+O capítulo mais bonito,
+Obrigado por sempre estar comigo.
+
+Com carinho: Patricio Alves da Silva Júnior.
+            </p></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Data atual
+            const dateElement = document.getElementById('current-date');
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = today.toLocaleDateString('pt-BR', options);
+        
+            // Animação de digitação do poema
+            const poemTextElement = document.getElementById('poem-text');
+            const textToAnimate = poemTextElement.innerHTML;
+            poemTextElement.innerHTML = '';
+            
+            let charIndex = 0;
+            const typingSpeed = 75; // Velocidade da digitação (quanto menor, mais rápido)
+        
+            function typeWriter() {
+                if (charIndex < textToAnimate.length) {
+                    poemTextElement.innerHTML += textToAnimate.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                }
+            }
+        
+            // Inicia a animação
+            typeWriter();
+        });
+    </script>
+
+</body>
+</html>
